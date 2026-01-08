@@ -11,12 +11,20 @@ export const StyledHeader = styled.header`
   top: 0;
   z-index: 100;
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    padding: 1rem;
+  }
 `;
 
 export const HeaderSection = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    gap: 0.75rem;
+  }
 `;
 
 export const StyledHeaderTitle = styled.h1`
@@ -30,6 +38,10 @@ export const Divider = styled.div`
   width: 1px;
   height: 1.25rem;
   background-color: ${(props) => props.theme.colors.border};
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    display: none;
+  }
 `;
 
 export const PageTitleSection = styled.div`
@@ -46,6 +58,10 @@ export const PageTitle = styled.h2`
   font-size: 1.25rem;
   font-weight: 600;
   color: ${(props) => props.theme.colors.foreground};
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    display: none;
+  }
 `;
 
 export const MembersSection = styled.div`
@@ -57,11 +73,19 @@ export const MembersSection = styled.div`
 export const UserIcon = styled(UserRoundIcon)`
   height: 1.25rem;
   color: ${(props) => props.theme.colors.inputForeground};
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    display: none;
+  }
 `;
 
 export const MembersCount = styled.span`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.inputForeground};
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    display: none;
+  }
 `;
 
 export const UserPicture = styled.img`

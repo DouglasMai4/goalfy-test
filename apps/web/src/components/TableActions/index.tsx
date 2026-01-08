@@ -5,29 +5,33 @@ import { Button } from '../ui/Button';
 import {
 	ButtonContent,
 	Container,
-	ContainerSection,
 	DownloadIcon,
 	FilterIcon,
 	FilterText,
+	MainActionsSection,
 	RowsCounter,
+	SearchWrapper,
+	SecondaryActionsSection,
 } from './styles';
 import { Input } from '../ui/Input';
 
 export function TableActions() {
 	return (
 		<Container>
-			<ContainerSection>
+			<MainActionsSection>
 				<Button>
 					<PlusCircleIcon />
 					<ButtonContent>Novo registro</ButtonContent>
 				</Button>
 
-				<Input icon={SearchIcon} placeholder="Pesquisar..." />
+				<SearchWrapper>
+					<Input icon={SearchIcon} placeholder="Pesquisar..." />
+				</SearchWrapper>
 
 				<RowsCounter>86 Registros</RowsCounter>
-			</ContainerSection>
+			</MainActionsSection>
 
-			<ContainerSection>
+			<SecondaryActionsSection>
 				<Button variant="ghost">
 					<DownloadIcon />
 				</Button>
@@ -36,7 +40,7 @@ export function TableActions() {
 					<FilterIcon />
 					<FilterText>Filtrar</FilterText>
 				</Button>
-			</ContainerSection>
+			</SecondaryActionsSection>
 		</Container>
 	);
 }

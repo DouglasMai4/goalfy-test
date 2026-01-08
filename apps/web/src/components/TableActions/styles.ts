@@ -5,12 +5,54 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
 `;
 
-export const ContainerSection = styled.div`
+export const MainActionsSection = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+
+    /* Make the button expand if needed, or just keep it natural */
+    & > button {
+      flex: 1;
+    }
+  }
+`;
+
+export const SecondaryActionsSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    justify-content: flex-end;
+  }
+`;
+
+export const SearchWrapper = styled.div`
+  /* On desktop, it behaves normally */
+  
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    width: 100%;
+    order: -1; /* Move to top */
+    
+    /* Target the InputContainer (div) */
+    & > div {
+      width: 100%;
+      min-width: 0;
+    }
+  }
 `;
 
 export const ButtonContent = styled.span`
@@ -21,6 +63,13 @@ export const ButtonContent = styled.span`
 export const RowsCounter = styled.span`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.inputForeground};
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    display: none; /* Hide count on mobile if it gets crowded, or keep it? user didn't specify, but space is tight. Let's keep it but make sure it fits. */
+    width: 100%;
+    text-align: center;
+    order: 3;
+  }
 `;
 
 export const DownloadIcon = styled(DownloadCloudIcon)`
