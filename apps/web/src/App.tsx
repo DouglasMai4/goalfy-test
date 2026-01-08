@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { Header } from './components/Header';
 
 const theme = {
 	colors: {
@@ -37,9 +38,10 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
-			<main>
-				<h1>Hello Goalfy!</h1>
-			</main>
+
+			<div>
+				<Header />
+			</div>
 		</ThemeProvider>
 	);
 }
