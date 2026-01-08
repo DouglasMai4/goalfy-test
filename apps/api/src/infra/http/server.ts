@@ -3,6 +3,8 @@ import cors from 'cors';
 
 import { config } from 'dotenv';
 
+import { clientRoutes } from '../../interfaces/http/routes/client.routes';
+
 config({
 	quiet: true,
 });
@@ -26,6 +28,8 @@ app.get('/', (_req, res) => {
 		},
 	});
 });
+
+app.use('/clients', clientRoutes);
 
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${3000}`);
