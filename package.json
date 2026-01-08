@@ -1,11 +1,15 @@
 {
   "name": "goalfy-test",
   "version": "1.0.0",
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "dev": "pnpm --filter \"./apps/*\" --parallel run dev"
   },
-  "keywords": ["goalfy"],
+  "keywords": [
+    "goalfy"
+  ],
   "author": "Douglas Veloso Maia",
   "license": "MIT",
   "packageManager": "pnpm@10.27.0",
