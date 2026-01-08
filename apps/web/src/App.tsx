@@ -1,9 +1,11 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Header } from './components/Header';
+import { TableActions } from './components/TableActions';
 
 const theme = {
 	colors: {
 		primary: '#5D29A1',
+		primaryForeground: '#FFFFFF',
 		background: '#FFFFFF',
 		foreground: '#232426',
 		border: '#E8E8E8',
@@ -34,6 +36,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const MainContent = styled.main`
+  padding: 1rem 5rem;
+`;
+
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
@@ -41,6 +47,10 @@ function App() {
 
 			<div>
 				<Header />
+
+				<MainContent>
+					<TableActions />
+				</MainContent>
 			</div>
 		</ThemeProvider>
 	);
