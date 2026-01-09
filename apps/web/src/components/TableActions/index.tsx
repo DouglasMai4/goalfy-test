@@ -1,6 +1,7 @@
 import { PlusCircleIcon, SearchIcon } from 'lucide-react';
 
 import { Button } from '../ui/Button';
+import { ClientFormModal } from '../ClientFormModal';
 
 import {
 	ButtonContent,
@@ -13,16 +14,22 @@ import {
 	SearchWrapper,
 	SecondaryActionsSection,
 } from './styles';
+
 import { Input } from '../ui/Input';
 
 export function TableActions() {
 	return (
 		<Container>
 			<MainActionsSection>
-				<Button>
-					<PlusCircleIcon />
-					<ButtonContent>Novo registro</ButtonContent>
-				</Button>
+				<ClientFormModal
+					trigger={
+						<Button>
+							<PlusCircleIcon />
+							<ButtonContent>Novo registro</ButtonContent>
+						</Button>
+					}
+					onSubmit={(data) => console.log(data)}
+				/>
 
 				<SearchWrapper>
 					<Input icon={SearchIcon} placeholder="Pesquisar..." />

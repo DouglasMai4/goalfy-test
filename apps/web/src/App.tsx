@@ -11,6 +11,7 @@ const theme = {
 		border: '#E8E8E8',
 		input: '#F2F2F2',
 		inputForeground: '#949FA6',
+		modalHeader: '#E4E5E7',
 	},
 	sizes: {
 		mobile: '768px',
@@ -38,6 +39,10 @@ const GlobalStyle = createGlobalStyle`
 
 const MainContent = styled.main`
   padding: 1rem 5rem;
+
+  @media (max-width: ${(props) => props.theme.sizes.mobile}) {
+    padding: 1rem;
+  }
 `;
 
 function App() {

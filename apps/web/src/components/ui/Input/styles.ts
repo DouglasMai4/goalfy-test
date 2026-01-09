@@ -7,8 +7,7 @@ export const InputContainer = styled.div`
   border-radius: 8px;
   padding: 0.5rem 1rem;
   cursor: text;
-  width: fit-content;
-  min-width: 250px;
+  width: 100%;
   transition: border-color 0.2s ease;
   background-color: ${(props) => props.theme.colors.input};
   border: 1px solid ${(props) => props.theme.colors.border};
@@ -28,6 +27,7 @@ export const InputStyled = styled.input`
   font-size: 1rem;
   background-color: transparent;
   outline: none;
+  width: 100%;
   color: ${(props) => props.theme.colors.foreground};
   caret-color: ${(props) => props.theme.colors.primary};
 

@@ -1,5 +1,6 @@
 import { DownloadCloudIcon, ListFilterIcon } from 'lucide-react';
 import styled from 'styled-components';
+import { Button } from '../ui/Button';
 
 export const Container = styled.div`
   display: flex;
@@ -23,7 +24,6 @@ export const MainActionsSection = styled.div`
     width: 100%;
     gap: 1rem;
 
-    /* Make the button expand if needed, or just keep it natural */
     & > button {
       flex: 1;
     }
@@ -41,13 +41,10 @@ export const SecondaryActionsSection = styled.div`
 `;
 
 export const SearchWrapper = styled.div`
-  /* On desktop, it behaves normally */
-  
   @media (max-width: ${(props) => props.theme.sizes.mobile}) {
     width: 100%;
-    order: -1; /* Move to top */
-    
-    /* Target the InputContainer (div) */
+    order: -1;
+
     & > div {
       width: 100%;
       min-width: 0;
@@ -65,7 +62,7 @@ export const RowsCounter = styled.span`
   color: ${(props) => props.theme.colors.inputForeground};
 
   @media (max-width: ${(props) => props.theme.sizes.mobile}) {
-    display: none; /* Hide count on mobile if it gets crowded, or keep it? user didn't specify, but space is tight. Let's keep it but make sure it fits. */
+    display: none;
     width: 100%;
     text-align: center;
     order: 3;
