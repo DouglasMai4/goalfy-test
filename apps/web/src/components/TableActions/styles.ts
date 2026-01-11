@@ -1,4 +1,5 @@
 import { DownloadCloudIcon, ListFilterIcon } from 'lucide-react';
+
 import styled from 'styled-components';
 import { Button } from '../ui/Button';
 
@@ -82,4 +83,26 @@ export const FilterIcon = styled(ListFilterIcon)`
 export const FilterText = styled.span`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.inputForeground};
+`;
+
+export const DropdownContent = styled.div`
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 0.5rem;
+`;
+
+export const DropdownSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+export const Label = styled.label`
+  font-size: 1rem;
+  font-weight: 600;
+`;
+
+export const FilterButton = styled(Button)`
+  grid-column: 1 / -1;
 `;

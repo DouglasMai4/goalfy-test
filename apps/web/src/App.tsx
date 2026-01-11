@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Header } from './components/Header';
 import { TableActions } from './components/TableActions';
+import { ClientTable } from './components/ClientTable';
 
 const theme = {
 	colors: {
@@ -38,6 +39,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const MainContent = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: 1rem 5rem;
 
   @media (max-width: ${(props) => props.theme.sizes.mobile}) {
@@ -55,6 +59,39 @@ function App() {
 
 				<MainContent>
 					<TableActions />
+
+					<ClientTable
+						isLoading={false}
+						clients={[
+							{
+								id: '1',
+								name: 'John Doe',
+								email: 'john.doe@example.com',
+								phone: '123-456-7890',
+								address: '123 Main St',
+								city: 'New York',
+								document: '12345678901234',
+							},
+							{
+								id: '2',
+								name: 'Jane Doe',
+								email: 'jane.doe@example.com',
+								phone: '987-654-3210',
+								address: '456 Elm St',
+								city: 'Los Angeles',
+								document: '98765432109876',
+							},
+							{
+								id: '3',
+								name: 'Bob Smith',
+								email: 'bob.smith@example.com',
+								phone: '555-555-5555',
+								address: '789 Oak St',
+								city: 'Chicago',
+								document: '12345678901234',
+							},
+						]}
+					/>
 				</MainContent>
 			</div>
 		</ThemeProvider>

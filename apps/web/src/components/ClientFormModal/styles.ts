@@ -54,5 +54,5 @@ export const NewText = styled.span`
 
 export const ErrorMessage = styled.span`
   font-size: 0.875rem;
-  color: #ef4444; // Red color for error
+  color: #ef4444;
 `;
