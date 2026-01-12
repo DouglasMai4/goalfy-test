@@ -33,6 +33,12 @@ Crie um arquivo `.env` na pasta `apps/api` (se necessário), baseando-se nas con
 # Rodar servidor em modo desenvolvimento
 pnpm dev
 
+# Realiza build da aplicação
+pnpm build
+
+# Iniciar aplicação compilada
+pnpm start
+
 # Sincronizar schema com o banco de dados
 pnpm db:push
 
