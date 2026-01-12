@@ -10,6 +10,7 @@ export const clientsTable = sqliteTable('clients', {
 	email: text('email').notNull(),
 	phone: text('phone').notNull(),
 	document: text('cnpj').notNull(),
+	zipCode: text('zip_code').notNull(),
 	address: text('address').notNull(),
 	city: text('city').notNull(),
 	createdAt: int('created_at', { mode: 'timestamp_ms' }).default(

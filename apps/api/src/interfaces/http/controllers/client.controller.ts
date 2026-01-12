@@ -4,15 +4,16 @@ import type { Request, Response } from 'express';
 import type { CreateClientUseCase } from '../../../application/use-cases/create-client.use-case';
 import type { FindAllClientUseCase } from '../../../application/use-cases/find-all-client.use-case';
 import type { FindEmailClientUseCase } from '../../../application/use-cases/find-email-client.use-case';
-import { FindIdClientUseCase } from '../../../application/use-cases/find-id-client.use-case';
-import { UpdateClientUseCase } from '../../../application/use-cases/update-client.use-case';
-import { DeleteClientUseCase } from '../../../application/use-cases/delete-client.use-case';
+import type { FindIdClientUseCase } from '../../../application/use-cases/find-id-client.use-case';
+import type { UpdateClientUseCase } from '../../../application/use-cases/update-client.use-case';
+import type { DeleteClientUseCase } from '../../../application/use-cases/delete-client.use-case';
 
 const clientSchema = z.object({
 	name: z.string().min(3),
 	email: z.email(),
-	phone: z.string(),
-	document: z.string(),
+	phone: z.string().min(10).max(11),
+	document: z.string().min(14).max(14),
+	zipCode: z.string().min(8).max(8),
 	address: z.string(),
 	city: z.string(),
 });

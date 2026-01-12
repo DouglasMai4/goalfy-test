@@ -5,6 +5,7 @@ interface CreateClientInput {
 	name: string;
 	email: string;
 	phone: string;
+	zipCode: string;
 	document: string;
 	address: string;
 	city: string;

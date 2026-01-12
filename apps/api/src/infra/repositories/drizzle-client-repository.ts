@@ -15,6 +15,7 @@ export class DrizzleClientRepository implements IClientRepository {
 				email: client.email,
 				phone: client.phone,
 				document: client.document,
+				zipCode: client.zipCode,
 				address: client.address,
 				city: client.city,
 			})
