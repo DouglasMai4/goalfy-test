@@ -2,6 +2,8 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Header } from './components/Header';
 import { TableActions } from './components/TableActions';
 import { ClientTable } from './components/ClientTable';
+import { useClients } from './contexts/client-context';
+import { useEffect } from 'react';
 
 const theme = {
 	colors: {
@@ -50,6 +52,12 @@ const MainContent = styled.main`
 `;
 
 function App() {
+	const { loadClients } = useClients();
+
+	useEffect(() => {
+		loadClients(true);
+	}, [loadClients]);
+
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
@@ -60,38 +68,7 @@ function App() {
 				<MainContent>
 					<TableActions />
 
-					<ClientTable
-						isLoading={false}
-						clients={[
-							{
-								id: '1',
-								name: 'John Doe',
-								email: 'john.doe@example.com',
-								phone: '123-456-7890',
-								address: '123 Main St',
-								city: 'New York',
-								document: '12345678901234',
-							},
-							{
-								id: '2',
-								name: 'Jane Doe',
-								email: 'jane.doe@example.com',
-								phone: '987-654-3210',
-								address: '456 Elm St',
-								city: 'Los Angeles',
-								document: '98765432109876',
-							},
-							{
-								id: '3',
-								name: 'Bob Smith',
-								email: 'bob.smith@example.com',
-								phone: '555-555-5555',
-								address: '789 Oak St',
-								city: 'Chicago',
-								document: '12345678901234',
-							},
-						]}
-					/>
+					<ClientTable />
 				</MainContent>
 			</div>
 		</ThemeProvider>

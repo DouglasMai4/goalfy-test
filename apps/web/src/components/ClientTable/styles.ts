@@ -1,3 +1,4 @@
+import { EllipsisVerticalIcon } from 'lucide-react';
 import styled from 'styled-components';
 
 export const TableContainer = styled.div`
@@ -59,6 +60,12 @@ export const TableCell = styled.td`
   color: ${(props) => props.theme.colors.foreground};
 `;
 
+export const CelCenter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Divider = styled.div`
   display: block;
   width: 1px;
@@ -69,4 +76,10 @@ export const Divider = styled.div`
   @media (max-width: ${(props) => props.theme.sizes.mobile}) {
     display: none;
   }
+`;
+
+export const LoadMoreContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 `;

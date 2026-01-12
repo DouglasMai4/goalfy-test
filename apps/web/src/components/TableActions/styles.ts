@@ -70,11 +70,6 @@ export const RowsCounter = styled.span`
   }
 `;
 
-export const DownloadIcon = styled(DownloadCloudIcon)`
-  height: 1rem;
-  color: ${(props) => props.theme.colors.inputForeground};
-`;
-
 export const FilterIcon = styled(ListFilterIcon)`
   height: 1rem;
   color: ${(props) => props.theme.colors.inputForeground};

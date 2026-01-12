@@ -22,6 +22,12 @@
 			},
 			"style": {
 				"noUnusedTemplateLiteral": "off"
+			},
+			"complexity": {
+				"noUselessLoneBlockStatements": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
 			}
 		}
 	},

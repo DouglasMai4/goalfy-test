@@ -22,8 +22,39 @@ import {
 import { Input } from '../ui/Input';
 import { Dropdown } from '../ui/Dropdown';
 import { Select } from '../ui/Select';
+import { useClients } from '../../contexts/client-context';
+import { DownloadButton } from '../DowloadButton';
 
 export function TableActions() {
+	const {
+		clients,
+		availableCities,
+		availableDDDs,
+		createClient,
+		selectedCity,
+		setSelectedCity,
+		selectedDDD,
+		setSelectedDDD,
+		search,
+		setSearch,
+	} = useClients();
+
+	const handleCreateClient = async (data: {
+		name: string;
+		email: string;
+		phone: string;
+		document: string;
+		zipCode: string;
+		city: string;
+		address: string;
+	}) => {
+		try {
+			await createClient(data);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	return (
 		<Container>
 			<MainActionsSection>
@@ -34,20 +65,24 @@ export function TableActions() {
 							<ButtonContent>Novo registro</ButtonContent>
 						</Button>
 					}
-					onSubmit={(data) => console.log(data)}
+					onSubmit={handleCreateClient}
 				/>
 
 				<SearchWrapper>
-					<Input icon={SearchIcon} placeholder="Pesquisar..." />
+					{/* TODO: Put a CNPJ input search too */}
+					<Input
+						icon={SearchIcon}
+						placeholder="Pesquisar..."
+						value={search}
+						onChange={(e) => setSearch(e.target.value)}
+					/>
 				</SearchWrapper>
 
-				<RowsCounter>86 Registros</RowsCounter>
+				<RowsCounter>{clients.length} Registros</RowsCounter>
 			</MainActionsSection>
 
 			<SecondaryActionsSection>
-				<Button variant="ghost">
-					<DownloadIcon />
-				</Button>
+				<DownloadButton />
 
 				<Dropdown.Root>
 					<Dropdown.Trigger>
@@ -61,12 +96,19 @@ export function TableActions() {
 							<DropdownSection>
 								<Label>Cidade</Label>
 
-								<Select.Root>
+								<Select.Root
+									value={selectedCity || undefined}
+									onValueChange={setSelectedCity}
+								>
 									<Select.Trigger>
 										<Select.Value placeholder="Selecione..." />
 									</Select.Trigger>
 									<Select.Content>
-										<Select.Item value="joinville">Joinville</Select.Item>
+										{availableCities.map((city) => (
+											<Select.Item key={city} value={city}>
+												{city}
+											</Select.Item>
+										))}
 									</Select.Content>
 								</Select.Root>
 							</DropdownSection>
@@ -74,17 +116,32 @@ export function TableActions() {
 							<DropdownSection>
 								<Label>DDD</Label>
 
-								<Select.Root>
+								<Select.Root
+									value={selectedDDD || undefined}
+									onValueChange={setSelectedDDD}
+								>
 									<Select.Trigger>
 										<Select.Value placeholder="Selecione..." />
 									</Select.Trigger>
 									<Select.Content>
-										<Select.Item value="47">47</Select.Item>
+										{availableDDDs.map((ddd) => (
+											<Select.Item key={ddd} value={ddd}>
+												{ddd}
+											</Select.Item>
+										))}
 									</Select.Content>
 								</Select.Root>
 							</DropdownSection>
 
-							<FilterButton>Filtrar</FilterButton>
+							<FilterButton
+								variant="ghost"
+								onClick={() => {
+									setSelectedCity(null);
+									setSelectedDDD(null);
+								}}
+							>
+								Limpar
+							</FilterButton>
 						</DropdownContent>
 					</Dropdown.Content>
 				</Dropdown.Root>

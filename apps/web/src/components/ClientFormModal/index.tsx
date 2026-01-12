@@ -37,6 +37,7 @@ export interface ClientFormModalProps {
 	onSubmit?: (data: ClientFormData) => Promise<void> | void;
 	submitLabel?: string;
 	title?: string;
+	onOpenChange?: (isOpen: boolean) => void;
 }
 
 export function ClientFormModal({
@@ -45,6 +46,7 @@ export function ClientFormModal({
 	onSubmit,
 	submitLabel = 'Novo Registro',
 	title = ' ',
+	onOpenChange,
 }: ClientFormModalProps) {
 	const {
 		register,
@@ -68,6 +70,7 @@ export function ClientFormModal({
 	});
 
 	const zipCode = watch('zipCode');
+	const address = watch('address');
 
 	useEffect(() => {
 		if (defaultValues) {
@@ -76,11 +79,11 @@ export function ClientFormModal({
 	}, [defaultValues, reset]);
 
 	useEffect(() => {
-		if (zipCode?.replace(/\D/g, '').length !== 8) return;
+		if (zipCode?.replace(/\D/g, '').length !== 8 || address) return;
 
 		async function fetchAddress() {
 			try {
-				const addressData = await searchZipCode(zipCode!);
+				const addressData = await searchZipCode(zipCode);
 
 				if (addressData) {
 					setValue('city', addressData.localidade);
@@ -95,14 +98,20 @@ export function ClientFormModal({
 		}
 
 		fetchAddress();
-	}, [zipCode, setValue]);
+	}, [zipCode, setValue, address]);
 
 	const handleFormSubmit = async (data: ClientFormData) => {
 		await onSubmit?.(data);
 	};
 
 	return (
-		<Modal.Root onOpenChange={() => reset()}>
+		<Modal.Root
+			onOpenChange={(isOpen) => {
+				reset();
+				onOpenChange?.(isOpen);
+			}}
+			defaultOpen={!!defaultValues}
+		>
 			<Modal.Trigger asChild>{trigger}</Modal.Trigger>
 			<Modal.Portal>
 				<Modal.Overlay />
