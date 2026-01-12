@@ -6,7 +6,6 @@ import { ClientFormModal } from '../ClientFormModal';
 import {
 	ButtonContent,
 	Container,
-	DownloadIcon,
 	DropdownContent,
 	DropdownSection,
 	FilterButton,

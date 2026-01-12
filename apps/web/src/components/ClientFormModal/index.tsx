@@ -30,6 +30,7 @@ import { formatCNPJ } from '../../utils/document';
 import { formatPhone } from '../../utils/phone';
 import { formatZipCode } from '../../utils/zipcode';
 import { searchZipCode } from '../../lib/zipcode';
+import { cleanString } from '../../utils/text';
 
 export interface ClientFormModalProps {
 	trigger: ReactNode;
@@ -101,7 +102,13 @@ export function ClientFormModal({
 	}, [zipCode, setValue, address]);
 
 	const handleFormSubmit = async (data: ClientFormData) => {
-		await onSubmit?.(data);
+		await onSubmit?.({
+			...data,
+			document: cleanString(data.document),
+			phone: cleanString(data.phone),
+			zipCode: cleanString(data.zipCode),
+		});
+		reset();
 	};
 
 	return (

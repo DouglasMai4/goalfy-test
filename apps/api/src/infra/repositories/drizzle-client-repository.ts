@@ -1,4 +1,4 @@
-import { eq, asc, gt } from 'drizzle-orm';
+import { eq, desc, gt } from 'drizzle-orm';
 
 import { db } from '../../infra/database/connection';
 import { clientsTable } from '../../infra/database/schema';
@@ -29,7 +29,7 @@ export class DrizzleClientRepository implements IClientRepository {
 			.select()
 			.from(clientsTable)
 			.where(cursor ? gt(clientsTable.id, cursor) : undefined)
-			.orderBy(asc(clientsTable.id))
+			.orderBy(desc(clientsTable.id))
 			.limit(limit + 1);
 	}
 
