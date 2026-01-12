@@ -49,6 +49,7 @@ export function ClientTable() {
 		deleteClient,
 		updateClient,
 	} = useClients();
+
 	const [clientToUpdate, setClientToUpdate] = useState<Client | null>(null);
 
 	useEffect(() => {

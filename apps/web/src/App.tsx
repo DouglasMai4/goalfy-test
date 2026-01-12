@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+
 import { Header } from './components/Header';
 import { TableActions } from './components/TableActions';
 import { ClientTable } from './components/ClientTable';
-import { useClients } from './contexts/client-context';
-import { useEffect } from 'react';
+import { ClientProvider } from './contexts/client-context';
 
 const theme = {
 	colors: {
@@ -52,25 +52,21 @@ const MainContent = styled.main`
 `;
 
 function App() {
-	const { loadClients } = useClients();
-
-	useEffect(() => {
-		loadClients(true);
-	}, [loadClients]);
-
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 
-			<div>
-				<Header />
+			<ClientProvider>
+				<div>
+					<Header />
 
-				<MainContent>
-					<TableActions />
+					<MainContent>
+						<TableActions />
 
-					<ClientTable />
-				</MainContent>
-			</div>
+						<ClientTable />
+					</MainContent>
+				</div>
+			</ClientProvider>
 		</ThemeProvider>
 	);
 }
