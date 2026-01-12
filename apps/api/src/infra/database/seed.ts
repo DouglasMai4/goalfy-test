@@ -1,14 +1,26 @@
 import { db } from './connection';
 import { clientsTable } from './schema';
+
+import { v7 as uuidv7 } from 'uuid';
+
 import { seed } from 'drizzle-seed';
+
+const count = 100;
+
+const generatedIds = Array.from({ length: count }, () => uuidv7());
 
 async function main() {
 	console.log('Starting seed...');
 
 	await seed(db, { clientsTable }).refine((funcs) => ({
 		clientsTable: {
-			count: 100,
+			count: count,
 			columns: {
+				id: funcs.valuesFromArray({
+					values: generatedIds,
+					isUnique: true,
+				}),
+
 				name: funcs.companyName(),
 
 				email: funcs.email(),
