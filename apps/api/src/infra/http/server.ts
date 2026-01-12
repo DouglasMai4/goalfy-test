@@ -32,5 +32,5 @@ app.get('/', (_req, res) => {
 app.use('/clients', clientRoutes);
 
 app.listen(PORT, () => {
-	console.log(`Server running on http://localhost:${3000}`);
+	console.log(`Server running on http://localhost:${PORT}`);
 });

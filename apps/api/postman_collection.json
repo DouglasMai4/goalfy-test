@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "081200e9-4db1-438c-9f35-108a24ae424d",
+		"name": "Clients",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23156666",
+		"_collection_link": "https://kingdom-softwares.postman.co/workspace/Goalfy~20d8043e-8338-4850-ae21-82da9248cdf9/collection/23156666-081200e9-4db1-438c-9f35-108a24ae424d?action=share&source=collection_link&creator=23156666"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Douglas Maia\",\n    \"email\": \"contato4@douglasmaia.dev.br\",\n    \"phone\": \"5547997694522\",\n    \"document\": \"12345678901234\",\n    \"address\": \"Rua Jonecir José Baierski, 443 Casa 4\",\n    \"city\": \"Joinville\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/clients",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/clients",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clients"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "cursor",
+							"value": "019b9eaf-e7c8-73a9-9d51-c582f6a4798f",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/clients/email/contato1@douglasmaia.dev.br",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clients",
+						"email",
+						"contato1@douglasmaia.dev.br"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/clients/019b9eaf-d742-771a-ae1b-07bdb20ea74b",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clients",
+						"019b9eaf-d742-771a-ae1b-07bdb20ea74b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Douglas Maia atualizado\",\n    \"email\": \"contato1@douglasmaia.dev.br\",\n    \"phone\": \"5547997694522\",\n    \"document\": \"12345678901234\",\n    \"address\": \"Rua Jonecir José Baierski, 443 Casa 4\",\n    \"city\": \"Joinville\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/clients/019b9eaf-d742-771a-ae1b-07bdb20ea74b",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clients",
+						"019b9eaf-d742-771a-ae1b-07bdb20ea74b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Douglas Maia atualizado\",\n    \"email\": \"contato1@douglasmaia.dev.br\",\n    \"phone\": \"5547997694522\",\n    \"document\": \"12345678901234\",\n    \"address\": \"Rua Jonecir José Baierski, 443 Casa 4\",\n    \"city\": \"Joinville\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/clients/019b9eaf-d742-771a-ae1b-07bdb20ea74b",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clients",
+						"019b9eaf-d742-771a-ae1b-07bdb20ea74b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
